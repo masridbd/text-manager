@@ -5,10 +5,16 @@
             "dest": "/404"
         },
         {
-            "src": "/current_text.txt",
-            "headers": {
-                "Content-Type": "text/plain"
-            }
+            "src": "/api/current-text",
+            "dest": "/api/current-text.js"
+        }
+    ],
+    "headers": [
+        {
+            "source": "/api/current-text",
+            "headers": [
+                { "key": "Content-Type", "value": "text/plain" }
+            ]
         }
     ]
 }
