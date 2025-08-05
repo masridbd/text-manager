@@ -5,16 +5,8 @@
             "dest": "/404"
         },
         {
-            "src": "/api/current-text",
-            "dest": "/api/current-text.js"
-        }
-    ],
-    "headers": [
-        {
-            "source": "/api/current-text",
-            "headers": [
-                { "key": "Content-Type", "value": "text/plain" }
-            ]
+            "src": "/(.*)",
+            "dest": "/public/index.html"
         }
     ]
 }
