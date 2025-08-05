@@ -1,38 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Manager</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secure Text Manager</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <div class="container" id="login-container">
-        <h1>Text Manager</h1>
-        <div class="card">
-            <h2>Enter PIN</h2>
-            <input type="password" id="pin-input" placeholder="Enter 6-digit PIN">
-            <button onclick="checkPin()">Submit</button>
-            <p id="error-message" class="error"></p>
-        </div>
+  <div class="container">
+    <div id="login-screen">
+      <h2>Enter PIN to Continue</h2>
+      <input type="password" id="pin" placeholder="Enter PIN" />
+      <button onclick="submitPIN()">Login</button>
+      <p id="login-error" class="error"></p>
     </div>
 
-    <div class="container" id="main-container" style="display: none;">
-        <h1>Text Manager</h1>
-        <div class="card">
-            <h2>Enter New Text</h2>
-            <textarea id="new-text" placeholder="Type your text here..."></textarea>
-            <button onclick="saveText()">Save Text</button>
+    <div id="main-app" style="display: none;">
+      <h2>Enter New Text</h2>
+      <textarea id="newText" placeholder="Type something..."></textarea>
+      <button onclick="submitText()">Submit</button>
 
-            <h3>Current Text</h3>
-            <p id="current-text">No text available</p>
-            <a href="/text-manager/current_text.txt" class="download-link">Download Current Text</a>
+      <h3>Current Text</h3>
+      <div id="currentText"></div>
 
-            <h3>Text History</h3>
-            <ul id="text-history"></ul>
-        </div>
+      <h3>Text History</h3>
+      <ul id="textHistory"></ul>
     </div>
-
-    <script src="script.js"></script>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
