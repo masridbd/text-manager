@@ -1,0 +1,14 @@
+{
+    "routes": [
+        {
+            "src": "/src/.*",
+            "dest": "/404"
+        },
+        {
+            "src": "/current_text.txt",
+            "headers": {
+                "Content-Type": "text/plain"
+            }
+        }
+    ]
+}
