@@ -42,6 +42,37 @@ function loadText() {
         li.textContent = `${item.text} (${item.timestamp})`;
         historyList.appendChild(li);
     });
+}
+
+function downloadCurrentText() {
+    const currentText = localStorage.getItem("currentText") || "No text available";
+    const link = document.createElement("a");
+    link.href = `data:text/plain;charset=utf-8,${encodeURIComponent(currentText)}`;
+    link.download = "current_text.txt";
+    link.style.display = "none";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Handle the /current_text.txt URL
+document.addEventListener("DOMContentLoaded", () => {
+    // Check if the current URL ends with /current_text.txt
+    if (window.location.pathname.endsWith("/current_text.txt")) {
+        downloadCurrentText();
+        // Redirect back to the homepage after download
+        window.location.href = "/text-manager/";
+    } else {
+        loadText();
+    }
+});    const history = JSON.parse(localStorage.getItem("textHistory")) || [];
+    const historyList = document.getElementById("text-history");
+    historyList.innerHTML = "";
+    history.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = `${item.text} (${item.timestamp})`;
+        historyList.appendChild(li);
+    });
 
     // Update current_text.txt (simulated for client-side)
     updateCurrentTextFile(currentText);
